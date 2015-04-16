@@ -18,6 +18,7 @@ Packages mentioned:
 
 
 For some of the resampling approaches (now mostly included in geomorph) we have written our custom functions. It may be easiest to speak directly so I can get you the right source files, but various iterations of these are in our source scripts and can be found on github or dryad:
+
     - https://github.com/DworkinLab/PitchersJEB2014_cricket_wings
     - http://datadryad.org/resource/doi:10.5061/dryad.nh53j
     - http://datadryad.org/resource/doi:10.5061/dryad.55j7t
@@ -30,4 +31,4 @@ in mind) and http://www.jstatsoft.org/v28/i01/paper, which refers to the
 contour3d function in the misc3d package.  It even has a brain PET scan
 example ..
 
-B.B. also mentioned the paper by 
+B.B. also mentioned the paper by Paul Murtaugh [SIMPLICITY AND COMPLEXITY IN ECOLOGICAL DATA ANALYSIS](http://www.esajournals.org/doi/abs/10.1890/0012-9658(2007)88%5B56:SACIED%5D2.0.CO;2)
