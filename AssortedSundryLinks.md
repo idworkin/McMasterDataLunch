@@ -16,14 +16,11 @@ Packages mentioned:
         - https://hopstat.wordpress.com/2015/04/09/a-small-neuroimage-interactive-plotter/
         - https://github.com/muschellij2/HopStat/tree/gh-pages/White_Matter_Segmentation_in_R
 
-
-For some of the resampling approaches (now mostly included in geomorph) we have written our custom functions. It may be easiest to speak directly so I can get you the right source files, but various iterations of these are in our source scripts and can be found on github or dryad:
-
-    - [https://github.com/DworkinLab/PitchersJEB2014_cricket_wings]
-    - [http://datadryad.org/resource/doi:10.5061/dryad.nh53j]
+5. For some of the resampling approaches (now mostly included in geomorph) we have written our custom functions. It may be easiest to speak directly so I can get you the right source files, but various iterations of these are in our source scripts and can be found on github or dryad:
+    - http://datadryad.org/resource/doi:10.5061/dryad.nh53j
     - http://datadryad.org/resource/doi:10.5061/dryad.55j7t
     - http://datadryad.org/resource/doi:10.5061/dryad.r43k1
-    
+ 
 ### From B.B.
 
 googling "R isosurface" gets the misc3d package (which is what I had
