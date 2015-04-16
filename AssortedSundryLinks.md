@@ -19,8 +19,8 @@ Packages mentioned:
 
 For some of the resampling approaches (now mostly included in geomorph) we have written our custom functions. It may be easiest to speak directly so I can get you the right source files, but various iterations of these are in our source scripts and can be found on github or dryad:
 
-    - https://github.com/DworkinLab/PitchersJEB2014_cricket_wings
-    - http://datadryad.org/resource/doi:10.5061/dryad.nh53j
+    - [https://github.com/DworkinLab/PitchersJEB2014_cricket_wings]
+    - [http://datadryad.org/resource/doi:10.5061/dryad.nh53j]
     - http://datadryad.org/resource/doi:10.5061/dryad.55j7t
     - http://datadryad.org/resource/doi:10.5061/dryad.r43k1
     
