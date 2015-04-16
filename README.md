@@ -5,4 +5,6 @@ This is just a place to put links to papers and libraries that we discuss in Dat
 
 If you are adding to it, please do add the *date* and last name of the presenter (so we can more easily find things). If this gets unwieldy we can do something different in the future.
 
+Just go to the [assortedSundryLinks](https://github.com/idworkin/McMasterDataLunch/blob/master/AssortedSundryLinks.md)
+
 
