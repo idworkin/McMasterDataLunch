@@ -24,7 +24,7 @@ The books below have slightly different focuses but would also be a good startin
  *Irizarry and Love*
  
  [The Foundations of Statistics: A Simulation Based Approach](https://link.springer.com/book/10.1007%2F978-3-642-16313-5)
-* Vasishth & Broe *
+*Vasishth & Broe*
 - different pedagogical approach that builds intuition and understanding about inferential methods via simulation. 
 
 ## Other Statistics resources
