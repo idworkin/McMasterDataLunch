@@ -1,6 +1,6 @@
 # Statistics resources to get started.
 
-This is based on a discussion led by Susan Marsh-Rollo (Nov 23rd 2018) about how to get ready for taking a class like Bio708, or just get yourself started with learning statistics from a few different perspectives.
+This is based on a discussion led by Susan Marsh-Rollo (Nov 23rd 2018) about how to get ready for taking a class like Bio708, or just get yourself started with learning statistics from a few different perspectives. Not meant to be comprehensive, just suggestions from discussions.
 
 
 ## Primary resources
@@ -16,6 +16,189 @@ A Primer of Ecological Statistics
 
 
 ## Alternative primary resources
+The books below have slightly different focuses but would also be a good starting place and going through any of them would provide a good perch to move forward.
+
+[Modern Statistics for Modern Biology](http://web.stanford.edu/class/bios221/book/) *Holmes & Huber*
+
+[Data Analysis for the Life Sciences](https://leanpub.com/dataanalysisforthelifesciences/)
+ *Irizarry and Love*
+ 
+ [The Foundations of Statistics: A Simulation Based Approach](https://link.springer.com/book/10.1007%2F978-3-642-16313-5)
+* Vasishth & Broe *
+- different pedagogical approach that builds intuition and understanding about inferential methods via simulation. 
+
+## Other Statistics resources
+
+Cartoon Guide to Statistics
+	Gonick & Smith
+
+
+Experimental Design and Data Analysis for Biologists
+Quinn & Keough
+https://www2.ib.unicamp.br/profs/fsantos/apostilas/Quinn%20&%20Keough.pdf
+
+
+Nonparametric Statistics for the Behavioral Sciences
+Siegel & Castellan
+
+
+Data Analysis Using Regression and Multilevel/Hierarchical Models
+Gelman & Hill
+-	Intermediate level book recommended AFTER taking the Intro Grad Stats course
+-	Covers Bayesian stastistics
+-	lots of scary equations  
+-	geared towards social sciences
+
+
+Regression Modeling Strategies: With Applications to Linear Models, Logistic Regression, and Survival Analysis (Springer Series in Statistics)
+Frank Harrell
+-	practical, rigourous, 
+-	linear regression, survival analysis
+
+
+Various Titles 
+	AF Zuur
+http://www.highstat.com
+-	good for complex ecological problems
+-	modeling approach
+-	but not as rigourous as Ben would like 
+-	has about 15 books out
+
+
+Genetics and Analysis of Quantitative Traits
+Lynch & Walsh
+https://global.oup.com/ushe/product/genetics-and-analysis-of-quantitative-traits-9780878934812?cc=ca&lang=en&
+
+
+The Geometry of Multivariate Statistics
+	TD Wickens
+
+	
+Introduction to Bayesian Statistics, Third Edition
+	Bolstad & Curran	
+https://onlinelibrary.wiley.com/doi/book/10.1002/9781118593165
+
+
+Doing Bayesian Data Analysis
+	John K. Kruschke
+https://sites.google.com/site/doingbayesiandataanalysis/what-s-new-in-2nd-ed
+Approaches to Statistical Inference
+Michael McCarthy
+-	has some issues with other inferential approaches other than Bayesian
+
+Little Red Books (Ben suggested these but I couldn't find anything online)
+
+
+Introduction to Biostatistics 2nd Edition
+	Sokal & Rohlf
+http://www.evolbiol.ru/docs/docs/large_files/biostatistics.pdf
+-	teaches an older less general approach to inference
+
+
+2.2  On-line Resources
+
+Recommended YouTube Videos
+-	start with videos on Probability Theory
+-	Three Blue, One Brown Channel  https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw
+
+
+STHDA.com 
+http://www.sthda.com/english/
+
+
+KHAN Academy
+https://www.khanacademy.org
+
+
+Statistical Learning (Self-Paced), Online Stanford Course
+	Hastie & Tibshirani
+-	good for learning fundamentals
+https://online.stanford.edu/courses/sohs-ystatslearning-statistical-learning-self-paced
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+3.  R RESOURCES
+
+3.1  Books
+
+Ecological Models and Data in R
+	Ben Bolker
+
+
+The Analysis of Biological Data
+Whitlock & Schluter
+
+
+The New Statistics with R: An Introduction for Biologists
+Andy Hector
+	- basic, ecology focused
+
+Introduction to Statistical Learning with Applications in R
+	James, Witten, Hastie & Tibshirani 	
+https://www-bcf.usc.edu/~gareth/ISL/ISLR%20First%20Printing.pdf
+
+	
+An Introduction to R
+	Venables  & Smith
+https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf
+
+
+R for Data Science
+	Wickham & Grolemund
+https://r4ds.had.co.nz
+
+
+A Primer in Biological Data Analysis and Visualization Using R
+	Gregg Hartvigsen
+
+
+3.2  On-line Resources
+
+DataCamp has good quality, hands-on, courses: https://www.datacamp.com/
+•	It’s _not_ a free option but someone who is motivated about learning R can subscribe for one month for about $40 and learn a ton during that month. The free option lets you access 9 courses, which is good to check if you like the course format. 
+
+R Bloggers (Ben)
+https://www.r-bloggers.com
+https://www.r-bloggers.com/how-to-learn-r-2/
+
+
+Official R Help List 
+https://www.r-project.org/mail.html
+https://stat.ethz.ch/mailman/listinfo/r-help
+
+
+McMaster R users list
+https://mailman.mcmaster.ca/mailman/listinfo/r-users-l
+
+
+An R Primer for Introductory Statistics
+	Bret Larget, U of Wisconsin
+https://www.stat.wisc.edu/~larget/r.html
+
+
+IDRE UCLA Statistical Consulting Service 
+-	very problem focused
+https://stats.idre.ucla.edu
+
+
+Stack Overflow
+https://stackoverflow.com/
+
+
+Simply Statistics – weekly blog out of John Hopkins
+	Irizarry, Peng & Leek
+https://simplystatistics.org/
+
+
+
+
+
+
+
+
+
+
+
 
 
 
