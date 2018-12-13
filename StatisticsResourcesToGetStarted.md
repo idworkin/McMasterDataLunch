@@ -16,7 +16,7 @@ A Primer of Ecological Statistics
 
 
 ## Alternative primary resources
-The books below have slightly different focuses but would also be a good starting place and going through any of them would provide a good perch to move forward.
+The books below have slightly different focuses but would also be a good starting place and going through any of them would provide a good perch to move forward. In particular both stress the kinds of data (like genomics data) that many "modern" biologists are dealing with now, which is a good thing. I particularly like the Irizarry and Love approach.
 
 [Modern Statistics for Modern Biology](http://web.stanford.edu/class/bios221/book/) *Holmes & Huber*
 
@@ -27,27 +27,32 @@ The books below have slightly different focuses but would also be a good startin
 *Vasishth & Broe*
 - different pedagogical approach that builds intuition and understanding about inferential methods via simulation. 
 
-## Other Statistics resources
+## Other Statistics resources that were mentioned as starting places
 
-Cartoon Guide to Statistics
-	Gonick & Smith
+Cartoon Guide to Statistics by Gonick & Smith
+
+[Experimental Design and Data Analysis for Biologists](https://www2.ib.unicamp.br/profs/fsantos/apostilas/Quinn%20&%20Keough.pdf)
+by Quinn & Keough. Similar approach to Gotelli and Ellison.
+
+Nonparametric Statistics for the Behavioral Sciences - Siegel & Castellan
+
+The Geometry of Multivariate Statistics by TD Wickens
+- nice geometric representations of simple statistics (like correlations, linear regression). Useful if you are planning on moving onto multivariate statistics after.
+	
+[Introduction to Bayesian Statistics, Third Edition](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118593165)
+Bolstad & Curran
+- Nice introduction to statistics, from a Bayesian perspective. 
+
+## After you level up
+
+Once you have gone through one or more of the books above, and you want to take things to the next level, here are a just a few suggestions.
 
 
-Experimental Design and Data Analysis for Biologists
-Quinn & Keough
-https://www2.ib.unicamp.br/profs/fsantos/apostilas/Quinn%20&%20Keough.pdf
-
-
-Nonparametric Statistics for the Behavioral Sciences
-Siegel & Castellan
-
-
-Data Analysis Using Regression and Multilevel/Hierarchical Models
-Gelman & Hill
+Data Analysis Using Regression and Multilevel/Hierarchical Models by Gelman & Hill
+- 	Ian taught jointly using this and Bolker (see below), and it is a great introduction to practical approaches to using general and generalized linear models, and mixed models.
 -	Intermediate level book recommended AFTER taking the Intro Grad Stats course
--	Covers Bayesian stastistics
--	lots of scary equations  
--	geared towards social sciences
+-	Introduces Bayesian stastistics
+-	geared towards social science examples, but very readable.
 
 
 Regression Modeling Strategies: With Applications to Linear Models, Logistic Regression, and Survival Analysis (Springer Series in Statistics)
@@ -68,21 +73,16 @@ http://www.highstat.com
 Genetics and Analysis of Quantitative Traits
 Lynch & Walsh
 https://global.oup.com/ushe/product/genetics-and-analysis-of-quantitative-traits-9780878934812?cc=ca&lang=en&
+- Ian Loves this book, but it is quite specialized, and even he does not recommend it as a general purpose book for advanced linear models.
 
 
-The Geometry of Multivariate Statistics
-	TD Wickens
-
-	
-Introduction to Bayesian Statistics, Third Edition
-	Bolstad & Curran	
-https://onlinelibrary.wiley.com/doi/book/10.1002/9781118593165
 
 
 Doing Bayesian Data Analysis
 	John K. Kruschke
 https://sites.google.com/site/doingbayesiandataanalysis/what-s-new-in-2nd-ed
 Approaches to Statistical Inference
+
 Michael McCarthy
 -	has some issues with other inferential approaches other than Bayesian
 
