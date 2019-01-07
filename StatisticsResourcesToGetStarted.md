@@ -14,6 +14,7 @@ A Primer of Ecological Statistics
 	Peter Dalgaard
 - this represents the Rish practical side and the mechanics of analysis and inference in R.
 
+- [Statquest](https://statquest.org/video-index/) is a wonderful set of youtube videos going over many fundamental concepts.
 
 ## Alternative primary resources
 The books below have slightly different focuses but would also be a good starting place and going through any of them would provide a good perch to move forward. In particular both stress the kinds of data (like genomics data) that many "modern" biologists are dealing with now, which is a good thing. I particularly like the Irizarry and Love approach.
