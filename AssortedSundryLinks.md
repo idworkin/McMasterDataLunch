@@ -1,8 +1,10 @@
 # Assorted and sundry from DataLunch (reverse chronological order)
 
-## July 31st 2020 (JCS presenting on swimming data).
+## July 31st 2020 (JCSz presenting on swimming data).
 
-We discussed the difference between transformations of the response data (like a log transformation of raw responses) and the use of link functions. [Here is a useful link discussing the difference](https://www.theanalysisfactor.com/the-difference-between-link-functions-and-data-transformations/).
+1. We discussed the difference between transformations of the response data (like a log transformation of raw responses) and the use of link functions. [Here is a useful link discussing the difference](https://www.theanalysisfactor.com/the-difference-between-link-functions-and-data-transformations/).
+2. We learned that the `plot.merMod()` method takes a `col=` argument, which allows you to colour the plot by a column of your data
+3. We learned that the `ranef()` method of lme4 model objects can return a data frame for use with ggplot2.
 
 
 ## April 16th 2015. M. Belyk presented on data for the meta-analysis of neuro-imaging data (??)
