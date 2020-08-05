@@ -1,4 +1,11 @@
-##April 16th 2015. M. Belyk presented on his data for the meta-analysis of neuro-imaging data (??)
+# Assorted and sundry from DataLunch (reverse chronological order)
+
+## July 31st 2020
+
+We discussed the difference between transformations of the response data (like a log transformation of raw responses) and the use of link functions. [Here is a useful link discussing the difference](https://www.theanalysisfactor.com/the-difference-between-link-functions-and-data-transformations/).
+
+
+## April 16th 2015. M. Belyk presented on his data for the meta-analysis of neuro-imaging data (??)
 
 ### Stuff from ID:
  
