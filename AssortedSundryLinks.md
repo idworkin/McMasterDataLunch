@@ -6,6 +6,9 @@
 2. We learned that the `plot.merMod()` method takes a `col=` argument, which allows you to colour the plot by a column of your data
 3. We learned that the `ranef()` method of lme4 model objects can return a data frame for use with ggplot2.
 
+## July 24th 2020 (CS presenting about comparing trap types for fish)
+
+1. We discussed how to get contrasts of various kinds out of a binomial model using emmeans. [Here is a link to the relevant place in the documentation](https://cran.r-project.org/web/packages/emmeans/vignettes/interactions.html#contrasts).
 
 ## April 16th 2015. M. Belyk presented on data for the meta-analysis of neuro-imaging data (??)
 
