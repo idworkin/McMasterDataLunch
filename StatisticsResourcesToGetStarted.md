@@ -191,7 +191,14 @@ Simply Statistics – weekly blog out of John Hopkins
 https://simplystatistics.org/
 
 
+## mixed models
 
+this is a little bit of a brain dump from a recent discussion
+
+- books by Zuur et al (e.g. see https://www.highstat.com/): ecologist-friendly, very practical/nuts and bolts approach, but disregard statistical advice. More recent books use R-INLA a lot (which is good for modeling spatial/temporal correlations). Some of these may also be published by Springer in the [UseR! series](https://www.springer.com/series/6991), which we may have access to via [SpringerLink](https://link.springer.com/search?facet-series=%226991%22&facet-content-type=%22Book%22)
+- Gelman and Hill *[Data Analysis Using Regression and Multilevel/Hierarchical Models](http://www.stat.columbia.edu/~gelman/arm/)* if you skip the mathy parts. More social-science focused, so lots of linear/Poisson/logistic models, not much weird ecology stuff (zero-inflation etc.)
+- my chapter in the Fox et al book . Very math-light. https://ms.mcmaster.ca/~bolker/R/misc/foxchapter/14-Fox-Chap13.pdf
+- McElreath _Statistical Rethinking_. Clear, but very Bayesian ...
 
 
 
