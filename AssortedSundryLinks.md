@@ -1,5 +1,10 @@
 # Assorted and sundry from DataLunch (reverse chronological order)
 
+
+## August 7th 2020 (MS presenting on social vs asocial fish and intelligence)
+
+1. We discussed using (instead of sum to zero or treatment contrasts) the successive difference contrast coding which is available in the MASS library. See [here](https://www.rdocumentation.org/packages/MASS/versions/7.3-51.6/topics/contr.sdif)
+
 ## July 31st 2020 (JCSz presenting on swimming data).
 
 1. We discussed the difference between transformations of the response data (like a log transformation of raw responses) and the use of link functions. [Here is a useful link discussing the difference](https://www.theanalysisfactor.com/the-difference-between-link-functions-and-data-transformations/).
