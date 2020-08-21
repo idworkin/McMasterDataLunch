@@ -1,5 +1,9 @@
 # Assorted and sundry from DataLunch (reverse chronological order)
 
+## August 21st 2020 (JCSz presenting on Lord's Paradox)
+
+1. Slides [here](https://jcszamosi.github.io/LordsParadox/)
+2. Judea Pearl's explanation [here](https://ftp.cs.ucla.edu/pub/stat_ser/r436.pdf)
 
 ## August 7th 2020 (MS presenting on social vs asocial fish and intelligence)
 
