@@ -7,19 +7,31 @@
  
  Output from chat window
  13:08:32	 From ID : Some basics of fitting multivariate linear models and multivariate mixed models in this tutorial
+ 
 13:08:34	 From ID : https://mac-theobio.github.io/QMEE/Multivariate_responses.html
+
 13:09:45	 From BB : To (possibly) make life harder: can you say a little bit more about experimental design details, i.e. how are fish raised in batches?  Presumably every egg doesn't have separate temperature control
+
 13:12:08	 From BB : so 100% pseudoreplicated ...
+
 13:12:50	 From RL(he/him) : Hmmm, I'm not thinking we should NOW adjust the covariate. I still get mixed up about direct and total effects; here we want to compare treatments after adjusting for hatch date, so that'd be using covariate in the standard way.
+
 13:13:12	 From BB : +1 to RL
+
 13:14:27	 From ID : https://github.com/DworkinLab/VirtualMorphoMeetup/blob/master/VirtualMorphMeet_April29_2020.md. this one is for using pairwise in RRPP (an extension of permmanova from adonis) that allows much more flexibility for multivariate linear models, including pulling out coefficients easily, R^2 etc..
+
 13:15:24	 From BB : Consider looking at other PCs, e.g. PC1 vs PC3? I know smaller PCs are more likely to be just noise, but it's also a little scary that 95% of the time people look *only* at PC1 vs PC2 ...
+
 13:17:58	 From BB: Josh Starmer, youtube, statsquest
+
 13:18:43	 From BB: if you're interested in linear algebra per se (i.e. what's an eigenvector), look for 3blue1brown (youtube???)
 
 13:19:50	 From ML : Cool. Excellent data-lunch to start off the term! 
+
 13:20:32	 From ML : Have a good weekend!
+
 13:20:38	 From RL (he/him) : Enjoyable - thanks
+
 13:20:39	 From BB : bye!
 
 
