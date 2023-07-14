@@ -1,18 +1,18 @@
 ---
 title: "DataLunch Statistical Power"
 author: "Ian Dworkin"
-date: "`r format(Sys.time(),'%d %b %Y')`"
+date: "14 Jul 2023"
 output:
-  slidy_presentation: 
-    fig_retina: 1
-    fig_width: 6
-  beamer_presentation:
-    incremental: no
   ioslides_presentation: 
     fig_height: 4
     fig_retina: 1
-    fig_width: 6
+    fig_width: 4
     keep_md: yes
+  beamer_presentation:
+    incremental: no
+  slidy_presentation: 
+    fig_retina: 1
+    fig_width: 4
   html_document:
     toc: yes
     number_sections: yes
@@ -22,15 +22,12 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-require(lattice)
-```
+
 
 
 ## points to think about before starting your power analysis
 
-![Effects_Not_Pvalues](./Fox2001.png)
+![Effects_Not_Pvalues](./Fox2001.png){width = 200}
 
 From Fox 2001 (DOI:10.1002/env.470)
 
@@ -55,47 +52,10 @@ From Fox 2001 (DOI:10.1002/env.470)
 
 
 ## Critical value for a $t$ distribution, for a one tailed test
-```{r one_tail_t, echo = F, include = T}
-curve(dt(x, 25), -5, 5, 
-      lwd = 2, ylim = c(0, 0.5),
-      ylab = "prob",
-      xlab = expression(italic(t)),
-      main = expression(paste(italic(t), " distribution, ", "df = 24")))
-
-# one tailed
-#qt(0.95, 25)
-
-shade_x <- c(1.71, seq(1.71, 4, 0.01), 4)
-shade_y <- c(0, dt(seq(1.71, 4, 0.01), 24), 0)
-
-polygon(shade_x, shade_y, col = 'grey60', border = NA)
-
-text(3 , 0.3, paste("5%"), cex = 1.2, col = "grey60")
-```
+![](PowerAnalysisDataLunch_2023_files/figure-html/one_tail_t-1.png)<!-- -->
 
 ## Critical value for a $t$ distribution, for a two tailed test
-```{r two_tail_t, echo = F}
-curve(dt(x, 25), -5, 5, 
-      lwd = 2, ylim = c(0, 0.5),
-      ylab = "prob",
-      xlab = expression(italic(t)),
-      main = expression(paste(italic(t), " distribution, ", "df = 24")))
-
-# one tailed
-#qt(0.975, 24)
-
-shade_x <- c(2.06, seq(2.06, 4, 0.01), 4)
-shade_y <- c(0, dt(seq(2.06, 4, 0.01), 24), 0)
-
-shade_x2 <- c(-4, seq(-4, -2.06, 0.01), -2.06)
-shade_y2 <- c(0, dt(seq(-4, -2.06, 0.01), 24), 0)
-
-polygon(shade_x, shade_y, col = 'grey60', border = NA)
-polygon(shade_x2, shade_y2, col = 'grey60', border = NA)
-
-text(2.6 ,0.2, paste("2.5%"), cex = 1.2, col = "grey60")
-text(-2.5 ,0.2, paste("2.5%"), cex = 1.2,col = "grey60")
-```
+![](PowerAnalysisDataLunch_2023_files/figure-html/two_tail_t-1.png)<!-- -->
 
 ## Keep in mind
 
@@ -117,46 +77,16 @@ Instead you should ask *"What is the effect?"* and for a power analysis, *"What 
 
 ## Let's compare these three data sets
 
-```{r sim_dat, echo = F, include = F}
-x <- rnorm (1000,  10, 3)
-y <- rnorm(length(x), 2 + 0.5*x, 2)
 
-x2 <- x[1:300]
-y2 <- y[1:300]
-
-x3 <- x[1:50]
-y3 <- y[1:50]
-```
 
 
 - Is there a relationship?
-```{r Plot_little_dat}
-par(mfrow = c(1,1))
-
-plot(y3 ~ x3, pch = 20, col = "blue",
-     ylab = "fitness", xlab = "size",
-      xlim = c(2, 18), ylim = c(1, 16))
-```
+![](PowerAnalysisDataLunch_2023_files/figure-html/Plot_little_dat-1.png)<!-- -->
 
 ## Is there a relationship?
 
 
-```{r plot_bigDat, echo = F}
-par(mfrow = c(1,3))
-plot(y3 ~ x3, pch = 20, col = "blue",
-     ylab = "fitness", xlab = "size",
-      xlim = c(2, 18), ylim = c(1, 16))
-
-plot(y2 ~ x2, pch = 20, col = "red",
-     ylab = "fitness", xlab = "size",
-      xlim = c(2, 18), ylim = c(1, 16))
-
-plot( y ~ x, pch = 20, col = "purple",
-      ylab = "fitness", xlab = "size",
-      xlim = c(2, 18), ylim = c(1, 16))
-
-par(mfrow = c(1,1))
-```
+![](PowerAnalysisDataLunch_2023_files/figure-html/plot_bigDat-1.png)<!-- -->
 
 >- In fact they all have the same relationship $fitness \sim N(2 + 0.5*size, \sigma = 2)$, and only differ in sample size.
 
@@ -178,8 +108,13 @@ par(mfrow = c(1,1))
 - Assume we have a sample size of $n = 25$, $\alpha = 0.05$ for a two-tailed distribution.
 - We can use the `qt()` function for the $t$ distribution
 
-```{r qt, echo = TRUE}
+
+```r
 qt(p = 0.975, df = 24)
+```
+
+```
+## [1] 2.06
 ```
 
 >- Why do we have df = 24, not 25?
@@ -193,7 +128,8 @@ qt(p = 0.975, df = 24)
 
 -  We can make a plot looking at this across a range of sample sizes.
 
-```{r qt_curve, echo = T, eval = F}
+
+```r
 curve(qt(p = 0.975,df = x), 2, 25, 
     col = "red", lwd = 3, cex.lab = 2,
     main = "Critical values of t for different sample sizes",
@@ -205,16 +141,7 @@ curve(qt(p = 0.975,df = x), 2, 25,
 
 -  We can make a plot looking at this across a range of sample sizes.
 
-```{r plot_qt_curve, echo = F,include = T}
-
-par(mar = c(5, 5, 1, 1))
-
-curve(qt(p = 0.975,df = x), 2, 25, 
-    col = "red", lwd = 3, cex.lab = 1.2,
-    main = "Critical values of t for different sample sizes",
-    xlab = "Sample Size", 
-    ylab = expression(paste("t value (two tailed), ", alpha, " =0.05")))
-```
+![](PowerAnalysisDataLunch_2023_files/figure-html/plot_qt_curve-1.png)<!-- -->
 
 ## Critical values for other distributions
 >- There are other distributions we can use: 
@@ -231,15 +158,14 @@ curve(qt(p = 0.975,df = x), 2, 25,
 
 ## Some of the functions in base R
 
-```{r}
-apropos("^power")
+
+```
+## [1] "power"            "power.anova.test" "power.prop.test"  "power.t.test"
 ```
 
 ## `power.t.test`
 >- What goes into a $t$-test?
-
->- 
-$$\frac{\bar{x}_A - \bar{x}_B }{ {\hat{\sigma}} \frac{1}{\sqrt{n} }}$$
+>- $\frac{\bar{x}_A - \bar{x}_B }{ {\hat{\sigma}} \frac{1}{\sqrt{n} }}$
 >- $\bar{x}_A$ is the mean for group $A$, $\bar{x}_B$ for $B$
 >- The denominator is just the *pooled standard error of the mean*
 >- So we see that there are 4 critical things:
@@ -247,15 +173,51 @@ $$\frac{\bar{x}_A - \bar{x}_B }{ {\hat{\sigma}} \frac{1}{\sqrt{n} }}$$
 
 
 ## `power.t.test`
-```{r pow_test, echo = T}
+
+```r
 pwr_t_check <- power.t.test(delta = 0.5, sd = 2, 
                        sig.level = 0.05, power = 0.8)
 
 pwr_t_check
+```
 
+```
+## 
+##      Two-sample t test power calculation 
+## 
+##               n = 252
+##           delta = 0.5
+##              sd = 2
+##       sig.level = 0.05
+##           power = 0.8
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group
+```
+
+```r
 str(pwr_t_check)
+```
 
+```
+## List of 8
+##  $ n          : num 252
+##  $ delta      : num 0.5
+##  $ sd         : num 2
+##  $ sig.level  : num 0.05
+##  $ power      : num 0.8
+##  $ alternative: chr "two.sided"
+##  $ note       : chr "n is number in *each* group"
+##  $ method     : chr "Two-sample t test power calculation"
+##  - attr(*, "class")= chr "power.htest"
+```
+
+```r
 pwr_t_check$n
+```
+
+```
+## [1] 252
 ```
 
 
@@ -266,15 +228,23 @@ pwr_t_check$n
 ## `power.t.test`
 - $\Delta = 0.5$, $\hat{\sigma} = 2$, $\alpha = 0.05$
 
-```{r delta_vec, echo = T}
+
+```r
 delta_vals = seq(from = 0.1, to = 0.5, by = 0.01)
 delta_vals
+```
+
+```
+##  [1] 0.10 0.11 0.12 0.13 0.14 0.15 0.16 0.17 0.18 0.19 0.20 0.21 0.22 0.23 0.24
+## [16] 0.25 0.26 0.27 0.28 0.29 0.30 0.31 0.32 0.33 0.34 0.35 0.36 0.37 0.38 0.39
+## [31] 0.40 0.41 0.42 0.43 0.44 0.45 0.46 0.47 0.48 0.49 0.50
 ```
 
 >- This creates a vector from 0.1 - 0.5
 
 ## `power.t.test`
-```{r pow_test2, echo = T}
+
+```r
 pow.test <- function(x){
 
   pow2 <- power.t.test(delta = x, sd = 2, 
@@ -285,31 +255,21 @@ pow.test <- function(x){
 ```
 
 ## `power.t.test`
-```{r, echo = T}
+
+```r
 power.n <- sapply(delta_vals, pow.test)
 ```
 >- This just uses one of the apply functions to repeat the function `pow.test` for each element of the vector "delta_vals". 
 >- Thus for each value in the vector "delta_vals" (from 0.1 to 0.5), it inputs this value into `pow.test()` and then returns the estimated n (# of observations needed to achieve this power).
 
 ## `power.t.test`
-```{r plot_power_t, echo = F}
-plot(power.n ~ delta_vals, 
-     pch = 20, cex = 2, col = "red",
-     ylab="needed sample size", 
-     main="sample size vs delta for t-test \n ( sd = 2 and alpha = 0.95)")
-```
+![](PowerAnalysisDataLunch_2023_files/figure-html/plot_power_t-1.png)<!-- -->
 
 ## Similarly, there are functions in base R for 1-way ANOVA
 
 `power.anova.test` example
 
-```{r}
-pwr_anova_SS <- power.anova.test(groups = 6, # how many groups 
-                                 between.var = 1, # between group variance
-                                 within.var = 3, # within group variance
-                                 sig.level = 0.05, # alpha
-                                 power = .80)
-```
+
 
 
 ## More complex power analyses
@@ -326,98 +286,17 @@ pwr_anova_SS <- power.anova.test(groups = 6, # how many groups
 
 ## Monte carlo power analysis example
 >- `R` code is hidden (but you can see it with the .Rmd file)
-```{r mc_power, include = F, echo = F, eval = F}
-N = 1000  # Number of simulations for inner loop. You generally want this to be >1000. 
 
-p = rep(NA, N) # initializing the vector to store the p values in the inner for loop. 
-
-#Global Parameter values
-a = 0.5 # intercept
-b <- seq(from = 0, to = 1.0,by = 0.1) # slopes to try
-
-sample_size <- seq(from = 5, to = 50, by = 1)  # Incremently increasing sample size from 10 to 100 by 10 observations at a time.
-
-power.size <- numeric(length(sample_size)) # initializing the vector to store the power at each sample size for the outer for loop.
-
-### initialize the matrix to store all of the power estimates
-power.b <- matrix(NA, length(sample_size), length(b))
-
-## Now the actual for loop
-
-for (k in 1:length(b))  # across the different effect sizes
- {
-  
-  b_b <- b[k]
-  
-   for (j in 1:length(sample_size))  # looping through the different sample_sizes
-
-    {
-   
-      s_s = sample_size[j]
-      for (i in 1:N)
-      {
-       x <- rnorm(s_s, mean=8, sd=2)  # simulate values of predictor
-       y_det <- a + b_b*x             # deterministic part of model
-       y_sim <- rnorm(s_s, mean=y_det,sd=2)  # Simulate y|x values
-       lm1 <- lm(y_sim~x)                    # fit model given simulation 
-       p[i] <- coef(summary(lm1))[2,4] # You may want to extract a different p-value from the model.
-	  
-     }
-    
-      power.size[j] <- length(p[p<0.05])/N   # How many p-values are less than alpha (0.05)
-   }
-   
-    power.b[,k] <- power.size 
-}
-```
 
 
 ## Plotting results from a power analysis
-```{r contour_plot, echo = F, eval = F}
-par(mfrow = c(1,1))
 
-filled.contour(z = power.b, x = sample_size, y = b, 
-    ylim = c(min(b), max(b)), xlim = c(min(sample_size), max(sample_size)), 
-    xlab = "Sample Size", ylab = "slope", color = topo.colors,
-    key.title = title(main = "power"))
-```
 
 ## Plotting results from a power analysis
-```{r surface_plot, echo = F, eval = F}
-persp(y=b, x = sample_size, z = power.b, col = "blue", theta = -65, 
-    shade = 0.75, ltheta = 45, ylab = "slope", xlab = "Sample Size", 
-    lphi = 30, zlim = c(0,1.25), ticktype = "detailed")
-```
+
 
 ## Plotting results from a power analysis
-```{r, echo = F, include = F, eval = F}
-power.b.t  <- t(power.b)  # Transpose the matrix to make it easier to work with.
-dim(power.b.t)
 
 
-# from a numeric vector of our slopes to factor for the legend (required for xyplot)
-lev.pow <- as.factor(b) 
 
-
-###  We need to write out a long formula for each component of this model for the graphics to grab each row.
-
-# generate the left side of the formula
-variable.matrix <- paste("power.b.t[", 1:nrow(power.b.t), ",]", sep="", collapse=" + ") 
-
-# This would have been the ugly thing we had to write out!
-variable.matrix 
-
-# Now we Generate the whole formula
-formula.1 <- as.formula(paste(variable.matrix, "sample_size", sep="~")) 
-# combines variable.matrix with the right side of the formula.
-
-formula.1
-
-# xyplot is in the lattice library.
-```
-
-```{r xyplot, echo = F, eval = F}
-xyplot(formula.1, type = "b", ylab = "power", 
-       key = simpleKey(levels(lev.pow), space = "right", title = "slope")) 
-```
 
