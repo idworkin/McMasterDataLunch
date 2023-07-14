@@ -3,21 +3,21 @@ title: "DataLunch Statistical Power"
 author: "Ian Dworkin"
 date: "14 Jul 2023"
 output:
-  ioslides_presentation: 
-    fig_height: 4
-    fig_retina: 1
-    fig_width: 4
-    keep_md: yes
-  beamer_presentation:
-    incremental: no
-  slidy_presentation: 
-    fig_retina: 1
-    fig_width: 4
   html_document:
     toc: yes
     number_sections: yes
     keep_md: yes
     code_folding: hide
+  beamer_presentation:
+    incremental: no
+  ioslides_presentation: 
+    fig_height: 4
+    fig_retina: 1
+    fig_width: 6
+    keep_md: yes
+  slidy_presentation: 
+    fig_retina: 1
+    fig_width: 6
 editor_options:
   chunk_output_type: console
 ---
@@ -27,7 +27,7 @@ editor_options:
 
 ## points to think about before starting your power analysis
 
-![Effects_Not_Pvalues](./Fox2001.png){width = 200}
+![Effects_Not_Pvalues](./Fox2001.png)
 
 From Fox 2001 (DOI:10.1002/env.470)
 
@@ -165,7 +165,9 @@ curve(qt(p = 0.975,df = x), 2, 25,
 
 ## `power.t.test`
 >- What goes into a $t$-test?
->- $\frac{\bar{x}_A - \bar{x}_B }{ {\hat{\sigma}} \frac{1}{\sqrt{n} }}$
+
+>- 
+$$\frac{\bar{x}_A - \bar{x}_B }{ {\hat{\sigma}} \frac{1}{\sqrt{n} }}$$
 >- $\bar{x}_A$ is the mean for group $A$, $\bar{x}_B$ for $B$
 >- The denominator is just the *pooled standard error of the mean*
 >- So we see that there are 4 critical things:
