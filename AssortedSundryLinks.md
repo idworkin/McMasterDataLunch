@@ -1,5 +1,28 @@
 # Assorted and sundry from DataLunch (reverse chronological order)
 
+
+## 21 Jul 2023 (MA on social exclusion)
+
+We made some standard points about not accepting the null hypothesis (in particular, not stressing comparisons between sig and nonsig).
+
+We were pretty uncertain about a good, practical way to compare the strength of effects on different response variables.
+
+BB and JD met after and were looking at multivariate linear models as a possible solution (for the case without link functions). We found [an article from Fox et al.](https://journal.r-project.org/archive/2013/RJ-2013-004/RJ-2013-004.pdf) that lays out the underlying theory nicely. It also shows good examples of practice, but not for what we want (i.e., not for comparing between different response variables). In fact, it's not even clear if the theory laid out there supports this comparison.
+
+Assuming we can deal appropriately with manova-like correlation, we still have a variety of possible approaches to dealing with Max's question.
+
+The question is: how to compare the strength of effects on different outcomes?
+
+The first step is to normalize the outcomes before feeding them to the model. The appropriate approach in this case is probably normalizing to unit variance.
+
+Beyond that, we have several choices:
+
+* Do 4C2 = 6 pairwise comparisons and do some sort of multiple comparisons correction
+* Aim for an overall P value that targets _differences_ in the coefficients. This is probably best done by looking at the null hypothesis that all are the same as the mean coefficient.
+* ???
+
+JD: I'm kind of leaning towards the second, because I think there's a relatively easy and robust way to do it (by fitting to some sort of residuals)
+
 ## Sept 11th, 2020 (MF presenting on wanting to start some multivariate analysis on a series of morphometrics data.
 
  - Suggested to MF to consider the dimensions (length vs. area vs. volume/mass) of variables and also scale before using these together.
