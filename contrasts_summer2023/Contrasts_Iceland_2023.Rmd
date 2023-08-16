@@ -350,7 +350,7 @@ head(size_dat)
 ```{r}
 ggplot(size_dat, 
        aes( y = length, x = selection:sex, col = sex, shape = replicate)) +
-  geom_beeswarm(alpha = 0.8, size = 1.4) +
+  geom_quasirandom(alpha = 0.8, size = 1.4) +
   labs( y = "length (mm)") +
   ggtitle("thorax") +
   theme_classic() +
