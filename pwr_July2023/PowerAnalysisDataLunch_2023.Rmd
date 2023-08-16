@@ -260,7 +260,7 @@ pwr_t_check$n
 
 
 ## `power.t.test`
->-  what sample sizes we would need for a range of differences, $\Delta = (0.1--0.5)$.
+>-  what sample sizes we would need for a range of differences, $\Delta$, on the interval $[0.1, 0.5]$.
 >- $(1 - \beta) = 0.8$, $\hat{\sigma} = 2$, $\alpha = 0.05$
 
 ## `power.t.test`
