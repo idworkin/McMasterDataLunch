@@ -60,7 +60,7 @@ ggplot(iris, aes(y = Sepal.Length, x = Petal.Length, col = Species)) +
 
 ### Let's consider a situation
 
- (this "question" is made up to facilitate the anaysis!)
+ (this "question" is made up to facilitate the analysis!)
  
  While we want to compare the differences between species for these morphological traits, we are specifically interested in in comparisons of *versicolor* to the other two species. So how may we do this?
  
@@ -117,7 +117,7 @@ SL_means_Species["virginica"] - SL_means_Species["setosa"]
 But we are not interested in the difference between setosa and the other two species, but in comparisons to versicolor.
 
 
-## Reviewing (or introducting) ourselves to the "design matrix"
+## Reviewing (or introducing) ourselves to the "design matrix"
 
 
 One easy fix for this without having to think about custom contrasts at all (yet!) is to re-level our factor so that the base level is versicolor:
@@ -157,7 +157,7 @@ unique(model.matrix(mod1_alt))
 
 ## So what's the problem?
 
-This solution is ok for this really really simple case. It is not particularly useful for more complex models, or complex contrasts.
+This solution is OK for this really really simple case. It is not particularly useful for more complex models, or complex contrasts.
 
 What if I wanted to compare the difference between *versicolor* and the other two species? How should I go about doing that?
 
@@ -176,11 +176,11 @@ species_predictedVals["versicolor"] - mean(species_predictedVals[c("setosa", "vi
 
 Mathematically,
 
-$$ 1 \times \hat{\mu}_{veriscolor}  - \frac{1}{2} \times\hat{\mu}_{setosa} - \frac{1}{2} \times\hat{\mu}_{virginica}$$
+$$ 1 \times \hat{\mu}_{versicolor}  - \frac{1}{2} \times\hat{\mu}_{setosa} - \frac{1}{2} \times\hat{\mu}_{virginica}$$
 
 i.e
 
-$$ 1 \times \hat{\mu}_{veriscolor}  - \frac{1}{2} (\hat{\mu}_{setosa} + \hat{\mu}_{virginica})$$
+$$ 1 \times \hat{\mu}_{versicolor}  - \frac{1}{2} (\hat{\mu}_{setosa} + \hat{\mu}_{virginica})$$
 
 with coefficients
 
@@ -203,7 +203,7 @@ sum(contrast_vector_example)
 This is the same as saying if the predicted value of *setosa* was the same as the mean of the predicted values of the other two species, the difference should be zero. 
 
 
-$$ \hat{\mu}_{veriscolor}  \approxeq \frac{1}{2} (\hat{\mu}_{setosa} + \hat{\mu}_{virginica})$$
+$$ \hat{\mu}_{versicolor}  \approxeq \frac{1}{2} (\hat{\mu}_{setosa} + \hat{\mu}_{virginica})$$
 
 This is an example of a custom contrast. Our $(1, -\frac{1}{2}, -\frac{1}{2})$ represents the contrasts coefficients.
 
@@ -216,7 +216,7 @@ We can construct our contrast coefficients with a few basic "rules" (See Crawley
 - a contrast coefficient of $0$ is used if that factor level is to be excluded from the comparison
 - The sum of the contrasts coefficients add up to zero
 
-### Ok, great?
+### OK, great?
 
 Well a couple of issues. First the way I just wrote this, is annoying for anything but a toy problem like this. 
 More importantly I want to be able to assess the uncertainty in this difference I computed. That means some fiddly algebra with the standard errors for each estimate.   
@@ -360,7 +360,7 @@ ggplot(size_dat,
 
 Here is the  model we used for the study for this trait. I will briefly discuss it with you, but importantly you will see it is more complicated than our toy example above.
 
-### review: Why log tranform the response variable?
+### review: Why log transform the response variable?
 **Note:** with the model that I am multiplying thorax length by 1000 (to convert to $\mu m$) and then using a $log_2$ transformation on it.
 
 Why am I doing the log transformation in the first place?
@@ -376,7 +376,7 @@ mod1_thorax <- lmer(log2(length*1000) ~ (sex + selection + sampling)^2 + (0 + se
 ```
 
 
-### Limited value of ANOVA's for interaction effect
+### Limited value of ANOVAs for interaction effect
 So how do we make sense of how sexual size dimorphism is changing among the selective treatments?
 
 An Anova (putting aside limitations on ANOVA in general, and for mixed models in particular for the moment) is not particularly informative
