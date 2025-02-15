@@ -1,13 +1,16 @@
 ---
 title: "Introduction to contrasts, and using emmeans in R"
 author: "Ian Dworkin"
-date: "14 Feb 2025"
+date: "15 Feb 2025"
 output:
   html_document:
     keep_md: yes
     code_folding: hide
     number_sections: yes
     toc: yes
+  pdf_document: 
+    toc: true
+    number_sections: true
 editor_options:
   chunk_output_type: console
 ---
@@ -47,13 +50,6 @@ library(car)
 
 ``` r
 library(ggplot2)
-```
-
-```
-## Need help? Try Stackoverflow: https://stackoverflow.com/tags/ggplot2
-```
-
-``` r
 library(ggbeeswarm)
 ```
 
@@ -106,7 +102,7 @@ ggplot(iris, aes(y = Sepal.Length, x = Petal.Length, col = Species)) +
    geom_point()
 ```
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
+![](Contrasts_Iceland_2023_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
 
 
 ### Let's consider a situation
@@ -492,7 +488,7 @@ plot(spp_em) +
   theme(text = element_text(size = 16))
 ```
 
-![plot of chunk unnamed-chunk-19](figure/unnamed-chunk-19-1.png)
+![](Contrasts_Iceland_2023_files/figure-html/unnamed-chunk-19-1.png)<!-- -->
 
 
 ### Setting up our custom contrasts in emmeans
@@ -538,7 +534,7 @@ plot(iris_custom_contrasts) +
          theme(text = element_text(size = 20))
 ```
 
-![plot of chunk unnamed-chunk-22](figure/unnamed-chunk-22-1.png)
+![](Contrasts_Iceland_2023_files/figure-html/unnamed-chunk-22-1.png)<!-- -->
 
 
 ### Flexibility with emmeans for many types of contrasts
@@ -598,7 +594,7 @@ plot(pairs(spp_em)) +
          xlab("Estimated difference in Sepal Lengths")
 ```
 
-![plot of chunk unnamed-chunk-24](figure/unnamed-chunk-24-1.png)
+![](Contrasts_Iceland_2023_files/figure-html/unnamed-chunk-24-1.png)<!-- -->
 
 and, usefully we could have gotten our setosa VS virginica (i.e. excluding versicolor) comparison this way
 
@@ -660,7 +656,7 @@ ggplot(size_dat,
   theme(text = element_text(size = 18))
 ```
 
-![plot of chunk unnamed-chunk-28](figure/unnamed-chunk-28-1.png)
+![](Contrasts_Iceland_2023_files/figure-html/unnamed-chunk-28-1.png)<!-- -->
 
 
 Here is the  model we used for the study for this trait. I will briefly discuss it with you, but importantly you will see it is more complicated than our toy example above.
@@ -810,7 +806,7 @@ plot(thorax_emm,
   theme(text = element_text(size = 16))
 ```
 
-![plot of chunk unnamed-chunk-32](figure/unnamed-chunk-32-1.png)
+![](Contrasts_Iceland_2023_files/figure-html/unnamed-chunk-32-1.png)<!-- -->
 
 
 #### side note: Backtransforming in emmeans
@@ -857,7 +853,7 @@ plot(thorax_emm_response,
   theme(text = element_text(size = 16))
 ```
 
-![plot of chunk unnamed-chunk-33](figure/unnamed-chunk-33-1.png)
+![](Contrasts_Iceland_2023_files/figure-html/unnamed-chunk-33-1.png)<!-- -->
 
 
 ### contrasts for sexual dimorphism
@@ -933,7 +929,7 @@ plot(SSD_contrasts_treatment) +
   theme(text = element_text(size = 16))
 ```
 
-![plot of chunk unnamed-chunk-35](figure/unnamed-chunk-35-1.png)
+![](Contrasts_Iceland_2023_files/figure-html/unnamed-chunk-35-1.png)<!-- -->
 
 
 ### The interaction contrast
@@ -942,16 +938,7 @@ But what we really want is to see how dimorphism changes in the selected treatme
 
 ``` r
 thorax_ssd <- emmeans(mod1_thorax,  pairwise ~ sex*selection) # warning is letting you know these are not of general use. We only do this as we are forming an interaction contrast.
-```
 
-```
-## Warning: You may have generated more contrasts than you really wanted. In the future,
-## we suggest you avoid things like 'pairwise ~ fac1*fac2' when you have
-## more than one factor. Instead, call emmeans() with just '~ fac1*fac2' and do the
-## contrasts you need in a later step. See vignette("QuickStart", "emmeans").
-```
-
-``` r
 thorax_ssd_contrasts <- contrast(thorax_ssd[[1]], 
                                  interaction = c(selection = "trt.vs.ctrl1", sex = "pairwise"),
                                  by = NULL)
@@ -995,7 +982,7 @@ plot(thorax_ssd_contrasts) +
   theme(text = element_text(size = 16))
 ```
 
-![plot of chunk unnamed-chunk-36](figure/unnamed-chunk-36-1.png)
+![](Contrasts_Iceland_2023_files/figure-html/unnamed-chunk-36-1.png)<!-- -->
 
 
 

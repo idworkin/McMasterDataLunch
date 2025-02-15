@@ -3,6 +3,9 @@ title: "Introduction to contrasts, and using emmeans in R"
 author: "Ian Dworkin"
 date: "`r format(Sys.time(),'%d %b %Y')`"
 output:
+  pdf_document: 
+    toc: true
+    number_sections: true
   html_document:
     keep_md: yes
     code_folding: hide
@@ -110,7 +113,7 @@ SL_means_Species["virginica"] - SL_means_Species["setosa"]
 ### These are not the difference(s) we are looking for
 
 
-![droids](https://media.giphy.com/media/l2JJKs3I69qfaQleE/giphy.gif) 
+![droids](https://media.giphy.com/media/l2JJKs3I69qfaQleE/giphy.gif)
 
 
 
