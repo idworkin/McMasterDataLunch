@@ -3,8 +3,9 @@ title: "DataLunch Statistical Power"
 author: "Ian Dworkin"
 date: "`r format(Sys.time(),'%d %b %Y')`"
 output:
-  beamer_presentation:
-    incremental: no
+  slidy_presentation: 
+    fig_retina: 1
+    fig_width: 6
   html_document:
     toc: yes
     number_sections: yes
@@ -15,9 +16,8 @@ output:
     fig_retina: 1
     fig_width: 6
     keep_md: yes
-  slidy_presentation: 
-    fig_retina: 1
-    fig_width: 6
+  beamer_presentation:
+    incremental: no
 editor_options:
   chunk_output_type: console
 ---
@@ -39,6 +39,105 @@ From Fox 2001 (DOI:10.1002/env.470)
 * Power analysis to maximize precision of your quantities of interest
 
 * [This paper by Daniël Lakens](https://online.ucpress.edu/collabra/article/8/1/33267/120491/Sample-Size-Justification) is a good starting place for considering how to determine sample sizes that will be sufficient for your needs.
+
+
+## Determining what effect sizes and variation to consider
+
+- Small pilot studies are useful for many reasons. 
+
+- Using them to provide approximate parameter values for effect sizes and measures of among sample variation is most often not one of the reasons.
+
+- Small studies will often have poorly estimated parameters of interest.
+
+- Likely better to include information from published studies that give you a sense of among sample variation and plausible effect sizes.
+
+
+## Maximize precision of quantities of interest
+
+
+- The standard error (sampling variation) is our usual measure of uncertainty in estimates.
+
+- For a mean the s.e. is usually approximated as
+
+$$ se_{\bar{x}} = \frac{s_x}{\sqrt{n}} $$
+With $s_x$ being the standard deviation of your variable x.
+
+So as a first approximation, you can re-write this:
+
+$$ n = (\frac{s_x}{se_{\bar{x}}})^2 $$
+
+
+## Why is this useful
+
+- I find this useful as I can think of how precise I want my estimate relative to the variation in the sample.
+
+$$ n = (\frac{s_x}{se_{\bar{x}}})^2 $$
+So if I want my estimate to be about as precise as a tenth of the variation
+
+$$ n = (\frac{s_x}{se_{\bar{x}}})^2 = (\frac{1}{0.1})^2 = 10^2 = 100$$
+So I would need at least 100 samples to estimate the $\bar{x}$ to that level of precision.
+
+## helpful to visualize
+
+```{r, echo = TRUE}
+precision_wanted <- seq(from = 0.05, to = 0.5, by = 0.01)
+sample_size_needed <- (1/precision_wanted)^2
+
+plot(y = sample_size_needed, x = precision_wanted, 
+     type = "p", pch = 20, col = "purple",
+     log = "y",
+     xlab = "precision desired",
+     ylab = "sample size needed")
+```
+
+
+## What if I had a minimal value I wanted to distinguish my estimate from
+
+- Now we need to think about two pieces. 
+  - That our lower 95% (or whatever) confidence interval on our estimate does not overlap with this value.
+  - The "power" we want to achieve.
+
+
+## The confidence intervals side of things
+For sample sized above about 35, for the 95% SE you are looking at a value that is about $1.96se$
+
+```{r, echo = TRUE}
+qnorm(0.975) # two sided
+qnorm(0.95) # one sided
+qt(0.95, df = 50) 
+```
+
+## The power side of things
+
+Say you want a power of about 0.8
+
+```{r, echo = TRUE}
+qnorm(0.8)
+```
+
+## We need to add these both
+
+```{r, echo = TRUE}
+multipler_we_need <- qnorm(0.8) + qnorm(0.975)
+
+multipler_we_need
+```
+
+## Now we include our minimal estimated effect and point of comparison
+
+- We call this multiplier to account for precision of estimate and the power we wish to achieve $m$.
+
+- Our point of comparison is $\theta_0$ and our minimum estimated value of consideration is $\theta$
+
+$$ n = (\frac{m \times s_x}{\theta - \theta_0})^2 = (\frac{2.8   s_x}{\theta - \theta_0})^2 $$
+
+
+## How about if we are estimating the means of two groups
+
+- If we can assume that the variation for each groups (A and B) is similar then it is
+
+$$ n = (\frac{2m \times s_x}{\theta_A - \theta_B})^2 = (\frac{5.6   s_x}{\theta_A - \theta_B})^2 $$
+
 
 ## the traditional "4 possible outcomes of a statistical test" 
 
