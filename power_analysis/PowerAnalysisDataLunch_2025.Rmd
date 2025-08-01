@@ -3,9 +3,8 @@ title: "DataLunch Statistical Power"
 author: "Ian Dworkin"
 date: "`r format(Sys.time(),'%d %b %Y')`"
 output:
-  slidy_presentation: 
-    fig_retina: 1
-    fig_width: 6
+  beamer_presentation:
+    incremental: no
   html_document:
     toc: yes
     number_sections: yes
@@ -16,8 +15,9 @@ output:
     fig_retina: 1
     fig_width: 6
     keep_md: yes
-  beamer_presentation:
-    incremental: no
+  slidy_presentation: 
+    fig_retina: 1
+    fig_width: 6
 editor_options:
   chunk_output_type: console
 ---
