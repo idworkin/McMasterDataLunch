@@ -42,7 +42,7 @@ There are some packages which can help with this as well, such as [`simr`](https
 ### using a for loop
 
 ``` r
-N = 500  # Number of simulations for inner loop. You generally want this to be >1000. 
+N = 1000  # Number of simulations for inner loop. You generally want this to be >1000. 
 
 minimum_value = rep(NA, N) # initializing the vector to store the minimum value from your estimates
 #Global Parameter values
@@ -51,7 +51,7 @@ minimum_threshold = 0.2 # The minimum value of interest
 
 a = 0.5 # intercept
 
-b <- seq(from = 0.2, to = 1, by = 0.05) # slope magnitudes to try
+b <- seq(from = 0.2, to = 0.8, by = 0.05) # slope magnitudes to try
 
 sample_size <- seq(from = 10, to = 100, by = 10)  # Incremently increasing sample size 
 
@@ -84,7 +84,7 @@ for (k in 1:length(b))  # across the different effect sizes
 	  
      }
     
-      power_size[j] <- length(minimum_value[minimum_value > minimum_threshold])/N   # How many estimates are greater than the relevant threshold
+      power_size[j] <- length(minimum_value[minimum_value >= minimum_threshold])/N   # How many estimates are greater than the relevant threshold
    }
    
     power_b[,k] <- power_size 
@@ -120,4 +120,106 @@ persp(y = b, x = sample_size, z = power_b, col = rgb(0, 0, 1, 0.45), theta = -45
 
 ![](ExamplePowerSimulations_files/figure-html/xyplot-1.png)<!-- -->
 
+
+### monte carlo simulation in a more Rish way
+
+
+Here we will use the base R functions
+
+``` r
+a = 0.5 # intercept
+
+b <- seq(from = 0.2, to = 0.8, by = 0.05) #slope
+
+std_dev = 2 # standard deviation of response
+
+sample_size <- seq(from = 10,to = 100, by = 10)
+
+N <- 1000 # number of replicate simulations for each combination
+```
+
+We will use `expand.grid` to get all combinations of b and sample_size
+
+
+```
+## [1] 130   2
+```
+
+
+We perform the simulation in a very similar way 
+
+``` r
+SimulatePower <- function(sample_size, b_b, a, std_dev){
+	x <- rnorm(sample_size, mean = 20, sd = 3)
+	y_det <- a + b_b*x
+  y_sim <- rnorm(sample_size, mean = y_det, sd = std_dev)
+  lm1 <- lm(y_sim ~ x)
+  minimum_value <- confint(lm1)[2,1]
+ }
+```
+
+
+Let's make sure it works
+
+``` r
+check_it_works <- replicate(N, 
+                            SimulatePower(sample_size = 100,
+                                          b_b = 0.4, a = 0, 
+                                          std_dev = 2))
+hist(check_it_works, freq = T, main = NULL)
+```
+
+![](ExamplePowerSimulations_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
+
+       
+To go through all the particular combination of sample sizes and slopes (once each), it would look like this
+
+
+
+``` r
+min_values <- mapply(SimulatePower, 
+    sample_size  = b_N$sample_size, b_b = b_N$b, 
+    MoreArgs = list(a = 0, std_dev = 2))
+```
+
+However since we want to do this many times for each combination we use `replicate`
+
+
+``` r
+rep_p <- replicate(N, mapply(SimulatePower, 
+    sample_size  = b_N$sample_size, b_b = b_N$b, 
+    MoreArgs=list(a = 0, std_dev = 2)) ) 
+```
+
+
+
+```
+## [1]  130 1000
+```
+
+
+Now we can compute the "power" to confidently (95%) assess whether our effects are at least as large as a minimum magnitude of interest
+
+
+``` r
+power_lev <- apply(rep_p, MARGIN = 1, 
+    function(x) length(x[x >= minimum_threshold])/length(x)) 
+```
+
+
+``` r
+grid_matrix <- matrix(data = power_lev, 
+                      nrow = length(b),
+                      ncol = length(sample_size))
+```
+
+
+``` r
+filled.contour(z = t(grid_matrix), x = sample_size, y = b,
+               ylim = c(min(b), max(b)),
+               xlim = c(min(sample_size), max(sample_size)), 
+               xlab = "Sample Size", ylab = "slope", color = topo.colors)
+```
+
+![](ExamplePowerSimulations_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
 
